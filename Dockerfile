@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # Install any dependencies
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 # Assuming you're at the right directory context
 # Backup the dist directory if it exists, and clear it
