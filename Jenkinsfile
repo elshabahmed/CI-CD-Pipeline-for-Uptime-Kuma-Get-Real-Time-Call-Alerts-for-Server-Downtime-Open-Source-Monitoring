@@ -18,17 +18,12 @@ pipeline{
                 sh "npm install --legacy-peer-deps"
             }
         }
-        stage("Sonarqube Analysis "){
+    /*    stage("Sonarqube Analysis "){
             steps{
                 withSonarQubeEnv('sonar') {
                     sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Chatbot \
                     -Dsonar.projectKey=Chatbot '''
                 }
-            }
-        }
-     /*   stage('TRIVY FS SCAN') {
-            steps {
-                sh "trivy fs . > trivyfs.json"
             }
         } */
         stage("Docker Build & Push"){
