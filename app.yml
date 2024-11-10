@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: test1
-        image: elshabahmed/test:latest
+        image: elshabahmed/uptime:latest
         ports:
         - containerPort: 3001
 ---
