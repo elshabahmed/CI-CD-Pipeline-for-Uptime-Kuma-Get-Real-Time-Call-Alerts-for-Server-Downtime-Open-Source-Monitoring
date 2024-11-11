@@ -25,7 +25,7 @@ pipeline {
                     // Use Jenkins credentials for Git push
                     sh """
                     git config user.name "elshabahmed"
-                    git config user.email "elshab.ahmed2000@gmail.com"
+                    git config user.email elshab.ahmed2000@gmail.com
                     git add k8s/app.yml
                     git commit -m "Update image to elshabahmed/uptime:latest"
                     git push origin main
