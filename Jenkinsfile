@@ -5,7 +5,7 @@ pipeline {
     }
     stages {
         
-        stage ("Git Pull") {
+        stage("Git Pull") {
             steps {
                 git branch: 'main', url: 'https://github.com/elshabahmed/CI-CD-Pipeline-for-Uptime-Kuma-Get-Real-Time-Call-Alerts-for-Server-Downtime-Open-Source-Monitoring.git'
             }
@@ -23,14 +23,13 @@ pipeline {
                     """
                     
                     // Use Jenkins credentials for Git push
-                        sh """
-                        git config user.name "elshabahmed"
-                        git config user.email "elshab.ahmed2000@gmail.com"
-                        git add k8s/app.yml
-                        git commit -m "Update image to elshabahmed/uptime:latest"
-                        git push origin main
-                        """
-                    }
+                    sh """
+                    git config user.name "elshabahmed"
+                    git config user.email "elshab.ahmed2000@gmail.com"
+                    git add k8s/app.yml
+                    git commit -m "Update image to elshabahmed/uptime:latest"
+                    git push origin main
+                    """
                 }
             }
         }
