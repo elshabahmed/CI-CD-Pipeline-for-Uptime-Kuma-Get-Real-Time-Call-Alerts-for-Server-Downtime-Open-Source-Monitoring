@@ -25,9 +25,9 @@ pipeline {
                     // Use Jenkins credentials for Git push
                     withCredentials([usernamePassword(credentialsId: 'git-hub', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
                         sh '''
-                        git config user.name "$GITHUB_USER"
+                        git config user.name "$GIT_USERNAME"
                         git config user.email "elshab.ahmed2000@gmail.com"
-                        git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/elshabahmed/CI-CD-Pipeline-for-Uptime-Kuma-Get-Real-Time-Call-Alerts-for-Server-Downtime-Open-Source-Monitoring.git
+                        git remote set-url origin https://$GIT_USERNAME:$GIT_PASSWORD@github.com/elshabahmed/CI-CD-Pipeline-for-Uptime-Kuma-Get-Real-Time-Call-Alerts-for-Server-Downtime-Open-Source-Monitoring.git
                         git add k8s/app.yml
                         git commit -m "Update image to elshabahmed/uptime:latest"
                         git push origin main
