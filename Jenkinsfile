@@ -23,13 +23,16 @@ pipeline {
                     """
                     
                     // Use Jenkins credentials for Git push
-                    sh """
-                    git config user.name "elshabahmed"
-                    git config user.email elshab.ahmed2000@gmail.com
-                    git add k8s/app.yml
-                    git commit -m "Update image to elshabahmed/uptime:latest"
-                    git push origin main
-                    """
+                    withCredentials([usernamePassword(credentialsId: 'git-hub', passwordVariable: 'GITHUB_TOKEN', usernameVariable: 'GITHUB_USER')]) {
+                        sh """
+                        git config user.name "$GITHUB_USER"
+                        git config user.email "elshab.ahmed2000@gmail.com"
+                        git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/elshabahmed/CI-CD-Pipeline-for-Uptime-Kuma-Get-Real-Time-Call-Alerts-for-Server-Downtime-Open-Source-Monitoring.git
+                        git add k8s/app.yml
+                        git commit -m "Update image to elshabahmed/uptime:latest"
+                        git push origin main
+                        """
+                    }
                 }
             }
         }
