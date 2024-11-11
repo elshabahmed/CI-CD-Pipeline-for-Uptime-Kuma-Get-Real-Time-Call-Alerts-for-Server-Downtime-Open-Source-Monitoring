@@ -23,7 +23,7 @@ pipeline {
                     """
                     
                     // Use Jenkins credentials for Git push
-                    withCredentials([usernamePassword(credentialsId: 'git-hub', passwordVariable: 'GITHUB_TOKEN', usernameVariable: 'GITHUB_USER')]) {
+                    withCredentials([usernamePassword(credentialsId: 'git-hub', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
                         sh '''
                         git config user.name "$GITHUB_USER"
                         git config user.email "elshab.ahmed2000@gmail.com"
